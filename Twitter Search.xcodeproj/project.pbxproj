@@ -15,6 +15,8 @@
 		A3F8CCB51C8C88C200D5CF67 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3F8CCB31C8C88C200D5CF67 /* LaunchScreen.storyboard */; };
 		A3F8CCBE1C8C8B1B00D5CF67 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8CCBD1C8C8B1B00D5CF67 /* SearchViewController.m */; };
 		A3F8CCC11C8C907F00D5CF67 /* SearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8CCC01C8C907F00D5CF67 /* SearchResultsViewController.m */; };
+		A3F8CCC41C8C928800D5CF67 /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8CCC31C8C928800D5CF67 /* Tweet.m */; };
+		A3F8CCC71C8C931C00D5CF67 /* TwitterUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8CCC61C8C931C00D5CF67 /* TwitterUser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +33,10 @@
 		A3F8CCBD1C8C8B1B00D5CF67 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		A3F8CCBF1C8C907F00D5CF67 /* SearchResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultsViewController.h; sourceTree = "<group>"; };
 		A3F8CCC01C8C907F00D5CF67 /* SearchResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultsViewController.m; sourceTree = "<group>"; };
+		A3F8CCC21C8C928800D5CF67 /* Tweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tweet.h; sourceTree = "<group>"; };
+		A3F8CCC31C8C928800D5CF67 /* Tweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tweet.m; sourceTree = "<group>"; };
+		A3F8CCC51C8C931C00D5CF67 /* TwitterUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterUser.h; sourceTree = "<group>"; };
+		A3F8CCC61C8C931C00D5CF67 /* TwitterUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterUser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,13 +69,11 @@
 		A3F8CCA11C8C88C200D5CF67 /* Twitter Search */ = {
 			isa = PBXGroup;
 			children = (
+				A3F8CCC81C8C942100D5CF67 /* Model */,
 				A3F8CCA51C8C88C200D5CF67 /* AppDelegate.h */,
 				A3F8CCA61C8C88C200D5CF67 /* AppDelegate.m */,
 				A3F8CCAB1C8C88C200D5CF67 /* Main.storyboard */,
-				A3F8CCBC1C8C8B1B00D5CF67 /* SearchViewController.h */,
-				A3F8CCBD1C8C8B1B00D5CF67 /* SearchViewController.m */,
-				A3F8CCBF1C8C907F00D5CF67 /* SearchResultsViewController.h */,
-				A3F8CCC01C8C907F00D5CF67 /* SearchResultsViewController.m */,
+				A3F8CCC91C8C942B00D5CF67 /* Search */,
 				A3F8CCB11C8C88C200D5CF67 /* Assets.xcassets */,
 				A3F8CCB31C8C88C200D5CF67 /* LaunchScreen.storyboard */,
 				A3F8CCB61C8C88C200D5CF67 /* Info.plist */,
@@ -85,6 +89,28 @@
 				A3F8CCA31C8C88C200D5CF67 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A3F8CCC81C8C942100D5CF67 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A3F8CCC21C8C928800D5CF67 /* Tweet.h */,
+				A3F8CCC31C8C928800D5CF67 /* Tweet.m */,
+				A3F8CCC51C8C931C00D5CF67 /* TwitterUser.h */,
+				A3F8CCC61C8C931C00D5CF67 /* TwitterUser.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		A3F8CCC91C8C942B00D5CF67 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				A3F8CCBC1C8C8B1B00D5CF67 /* SearchViewController.h */,
+				A3F8CCBD1C8C8B1B00D5CF67 /* SearchViewController.m */,
+				A3F8CCBF1C8C907F00D5CF67 /* SearchResultsViewController.h */,
+				A3F8CCC01C8C907F00D5CF67 /* SearchResultsViewController.m */,
+			);
+			name = Search;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,8 +184,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3F8CCA71C8C88C200D5CF67 /* AppDelegate.m in Sources */,
+				A3F8CCC71C8C931C00D5CF67 /* TwitterUser.m in Sources */,
 				A3F8CCC11C8C907F00D5CF67 /* SearchResultsViewController.m in Sources */,
 				A3F8CCBE1C8C8B1B00D5CF67 /* SearchViewController.m in Sources */,
+				A3F8CCC41C8C928800D5CF67 /* Tweet.m in Sources */,
 				A3F8CCA41C8C88C200D5CF67 /* main.m in Sources */,
 				A3F8CCB01C8C88C200D5CF67 /* Twitter_Search.xcdatamodeld in Sources */,
 			);
