@@ -17,33 +17,33 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qcD-5x-Fgz">
-                        <rect key="frame" x="13" y="8" width="50" height="50"/>
+                        <rect key="frame" x="13" y="13" width="50" height="50"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="50" id="8nG-mt-F4x"/>
                             <constraint firstAttribute="width" secondItem="qcD-5x-Fgz" secondAttribute="height" multiplier="1:1" id="i6K-Tp-EEU"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                <integer key="value" value="10"/>
+                                <integer key="value" value="5"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4tn-PC-LBj" userLabel="Status">
-                        <rect key="frame" x="73" y="8" width="229" height="73"/>
+                        <rect key="frame" x="73" y="13" width="229" height="63"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Doe" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQe-y1-71e" userLabel="User name">
-                                <rect key="frame" x="0.0" y="0.0" width="229" height="20"/>
+                                <rect key="frame" x="0.0" y="0.0" width="229" height="15"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="q5V-mf-3B7"/>
+                                    <constraint firstAttribute="height" constant="15" id="q5V-mf-3B7"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <color key="textColor" white="0.10000000000000001" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit amet, et quod forensibus democritum mea, no eam partem invidunt consetetur. " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzw-oC-v1D">
-                                <rect key="frame" x="0.0" y="20" width="229" height="53"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="0.0" y="18" width="229" height="45"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="0.10000000000000001" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -51,8 +51,8 @@
                         <constraints>
                             <constraint firstItem="hQe-y1-71e" firstAttribute="top" secondItem="4tn-PC-LBj" secondAttribute="top" id="GSp-RE-lxx"/>
                             <constraint firstItem="dzw-oC-v1D" firstAttribute="leading" secondItem="4tn-PC-LBj" secondAttribute="leading" id="L2s-AB-NNf"/>
-                            <constraint firstAttribute="bottom" secondItem="dzw-oC-v1D" secondAttribute="bottom" id="NGg-KY-Qgt"/>
-                            <constraint firstItem="dzw-oC-v1D" firstAttribute="top" secondItem="hQe-y1-71e" secondAttribute="bottom" id="UC5-Wb-HSy"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="dzw-oC-v1D" secondAttribute="bottom" id="NGg-KY-Qgt"/>
+                            <constraint firstItem="dzw-oC-v1D" firstAttribute="top" secondItem="hQe-y1-71e" secondAttribute="bottom" constant="3" id="UC5-Wb-HSy"/>
                             <constraint firstAttribute="trailing" secondItem="dzw-oC-v1D" secondAttribute="trailing" id="dyl-bk-DGZ"/>
                             <constraint firstItem="hQe-y1-71e" firstAttribute="leading" secondItem="4tn-PC-LBj" secondAttribute="leading" id="qS0-1f-HX4"/>
                             <constraint firstAttribute="trailing" secondItem="hQe-y1-71e" secondAttribute="trailing" id="tcy-x5-9x5"/>
@@ -63,10 +63,10 @@
                     <constraint firstItem="4tn-PC-LBj" firstAttribute="leading" secondItem="qcD-5x-Fgz" secondAttribute="trailing" constant="10" id="3sT-7q-CFY"/>
                     <constraint firstAttribute="trailingMargin" secondItem="4tn-PC-LBj" secondAttribute="trailing" constant="10" id="Jvc-zv-5hq"/>
                     <constraint firstItem="qcD-5x-Fgz" firstAttribute="top" secondItem="4tn-PC-LBj" secondAttribute="top" id="PuO-Zh-Iev"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="4tn-PC-LBj" secondAttribute="bottom" constant="5" id="X6y-QK-dXv"/>
+                    <constraint firstAttribute="topMargin" secondItem="4tn-PC-LBj" secondAttribute="top" constant="-5" id="dwg-b6-0HX"/>
                     <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="qcD-5x-Fgz" secondAttribute="bottom" id="e4t-4V-X8x"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="4tn-PC-LBj" secondAttribute="bottom" id="kJ9-DE-31Y"/>
                     <constraint firstItem="qcD-5x-Fgz" firstAttribute="leading" secondItem="4o4-dw-acS" secondAttribute="leadingMargin" constant="5" id="ljH-NJ-gR9"/>
-                    <constraint firstAttribute="topMargin" secondItem="4tn-PC-LBj" secondAttribute="top" id="skc-IF-BjN"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
