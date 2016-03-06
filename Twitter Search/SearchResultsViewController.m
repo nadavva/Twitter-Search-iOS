@@ -1,4 +1,4 @@
-//
+    //
 //  SearchResultsViewController.m
 //  Twitter Search
 //
@@ -11,6 +11,7 @@
 #import <SVProgressHUD/SVProgressHUD.h>
 #import "SearchResultsViewController.h"
 #import "Tweet.h"
+#import "TweetCell.h"
 
 @interface SearchResultsViewController()
 @property (nonatomic, strong) NSArray<Tweet *> *tweets;
@@ -24,6 +25,10 @@
     self.title = self.searchQuery;
     
     self.tableView.allowsSelection = NO;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 100.0f;
+    UINib *cellNib = [UINib nibWithNibName:NSStringFromClass(TweetCell.class) bundle:nil];
+    [self.tableView registerNib:cellNib forCellReuseIdentifier:@"Tweet Cell"];
     
     [self loadResults];
 }
@@ -44,20 +49,27 @@
             return;
         }
         
-        ACAccount *twitterAccount = [arrayOfAccounts lastObject];
-        
-        NSString *requestURLString = [NSString stringWithFormat:@"https://api.twitter.com/1.1/search/tweets.json?q=%@", self.searchQuery];
+        NSString *searchQueryEncoded = [self.searchQuery stringByAddingPercentEscapesUsingEncoding:
+                                        NSUTF8StringEncoding];
+        NSString *requestURLString = [NSString stringWithFormat:@"https://api.twitter.com/1.1/search/tweets.json?q=%@", searchQueryEncoded];
         NSURL *requestURL = [NSURL URLWithString:requestURLString];
         NSDictionary *parameters = @{};
         SLRequest *postRequest = [SLRequest
                                   requestForServiceType:SLServiceTypeTwitter
                                   requestMethod:SLRequestMethodGET
                                   URL:requestURL parameters:parameters];
+        ACAccount *twitterAccount = [arrayOfAccounts lastObject];
         postRequest.account = twitterAccount;
         
-        [SVProgressHUD show];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [SVProgressHUD show];
+        });
+        
         [postRequest performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
-            [SVProgressHUD dismiss];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [SVProgressHUD dismiss];
+            });
+            
             NSArray *statusesArray = [NSJSONSerialization
                                       JSONObjectWithData:responseData
                                       options:NSJSONReadingMutableLeaves
@@ -91,10 +103,10 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Tweet Cell" forIndexPath:indexPath];
+    TweetCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Tweet Cell" forIndexPath:indexPath];
     
     Tweet *tweet = self.tweets[indexPath.row];
-    cell.textLabel.text = tweet.text;
+    [cell configureCellWithTweet:tweet];
     
     return cell;
 }

@@ -35,8 +35,10 @@
 #pragma mark - UISearchBar methods
 
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
-    self.searchQuery = searchBar.text;
-    [self performSegueWithIdentifier:@"SearchResults" sender:self];
+    if (searchBar.text.length > 0) {
+        self.searchQuery = searchBar.text;
+        [self performSegueWithIdentifier:@"SearchResults" sender:self];
+    }
 }
 
 #pragma mark - Table methods

@@ -18,6 +18,8 @@
 		A3F8CCC11C8C907F00D5CF67 /* SearchResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8CCC01C8C907F00D5CF67 /* SearchResultsViewController.m */; };
 		A3F8CCC41C8C928800D5CF67 /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8CCC31C8C928800D5CF67 /* Tweet.m */; };
 		A3F8CCC71C8C931C00D5CF67 /* TwitterUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8CCC61C8C931C00D5CF67 /* TwitterUser.m */; };
+		A3F8CCCC1C8CAA2A00D5CF67 /* TweetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8CCCB1C8CAA2A00D5CF67 /* TweetCell.m */; };
+		A3F8CCCE1C8CAA6400D5CF67 /* TweetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3F8CCCD1C8CAA6400D5CF67 /* TweetCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +43,9 @@
 		A3F8CCC31C8C928800D5CF67 /* Tweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tweet.m; sourceTree = "<group>"; };
 		A3F8CCC51C8C931C00D5CF67 /* TwitterUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterUser.h; sourceTree = "<group>"; };
 		A3F8CCC61C8C931C00D5CF67 /* TwitterUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterUser.m; sourceTree = "<group>"; };
+		A3F8CCCA1C8CAA2A00D5CF67 /* TweetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetCell.h; sourceTree = "<group>"; };
+		A3F8CCCB1C8CAA2A00D5CF67 /* TweetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetCell.m; sourceTree = "<group>"; };
+		A3F8CCCD1C8CAA6400D5CF67 /* TweetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +100,9 @@
 				A3F8CCB61C8C88C200D5CF67 /* Info.plist */,
 				A3F8CCAE1C8C88C200D5CF67 /* Twitter_Search.xcdatamodeld */,
 				A3F8CCA21C8C88C200D5CF67 /* Supporting Files */,
+				A3F8CCCA1C8CAA2A00D5CF67 /* TweetCell.h */,
+				A3F8CCCB1C8CAA2A00D5CF67 /* TweetCell.m */,
+				A3F8CCCD1C8CAA6400D5CF67 /* TweetCell.xib */,
 			);
 			path = "Twitter Search";
 			sourceTree = "<group>";
@@ -171,6 +179,7 @@
 				TargetAttributes = {
 					A3F8CC9E1C8C88C100D5CF67 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 5JHLCV2DBL;
 					};
 				};
 			};
@@ -200,6 +209,7 @@
 				A3F8CCB51C8C88C200D5CF67 /* LaunchScreen.storyboard in Resources */,
 				A3F8CCB21C8C88C200D5CF67 /* Assets.xcassets in Resources */,
 				A3F8CCAD1C8C88C200D5CF67 /* Main.storyboard in Resources */,
+				A3F8CCCE1C8CAA6400D5CF67 /* TweetCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +275,7 @@
 				A3F8CCC41C8C928800D5CF67 /* Tweet.m in Sources */,
 				A3F8CCA41C8C88C200D5CF67 /* main.m in Sources */,
 				A3F8CCB01C8C88C200D5CF67 /* Twitter_Search.xcdatamodeld in Sources */,
+				A3F8CCCC1C8CAA2A00D5CF67 /* TweetCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +390,7 @@
 			baseConfigurationReference = 8A7946CC5D02BD85A2337FED /* Pods-Twitter Search.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Twitter Search/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.meriw.Twitter-Search";
@@ -391,6 +403,7 @@
 			baseConfigurationReference = 7339841FECDE1A4334396683 /* Pods-Twitter Search.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Twitter Search/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.meriw.Twitter-Search";

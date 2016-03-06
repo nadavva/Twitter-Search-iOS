@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10115" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10084"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="90" id="Ne0-rW-fUT" customClass="TweetCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="90"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ne0-rW-fUT" id="4o4-dw-acS">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="89"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qcD-5x-Fgz">
+                        <rect key="frame" x="13" y="8" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="8nG-mt-F4x"/>
+                            <constraint firstAttribute="width" secondItem="qcD-5x-Fgz" secondAttribute="height" multiplier="1:1" id="i6K-Tp-EEU"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4tn-PC-LBj" userLabel="Status">
+                        <rect key="frame" x="73" y="8" width="229" height="73"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Doe" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQe-y1-71e" userLabel="User name">
+                                <rect key="frame" x="0.0" y="0.0" width="229" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="q5V-mf-3B7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit amet, et quod forensibus democritum mea, no eam partem invidunt consetetur. " lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dzw-oC-v1D">
+                                <rect key="frame" x="0.0" y="20" width="229" height="53"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hQe-y1-71e" firstAttribute="top" secondItem="4tn-PC-LBj" secondAttribute="top" id="GSp-RE-lxx"/>
+                            <constraint firstItem="dzw-oC-v1D" firstAttribute="leading" secondItem="4tn-PC-LBj" secondAttribute="leading" id="L2s-AB-NNf"/>
+                            <constraint firstAttribute="bottom" secondItem="dzw-oC-v1D" secondAttribute="bottom" id="NGg-KY-Qgt"/>
+                            <constraint firstItem="dzw-oC-v1D" firstAttribute="top" secondItem="hQe-y1-71e" secondAttribute="bottom" id="UC5-Wb-HSy"/>
+                            <constraint firstAttribute="trailing" secondItem="dzw-oC-v1D" secondAttribute="trailing" id="dyl-bk-DGZ"/>
+                            <constraint firstItem="hQe-y1-71e" firstAttribute="leading" secondItem="4tn-PC-LBj" secondAttribute="leading" id="qS0-1f-HX4"/>
+                            <constraint firstAttribute="trailing" secondItem="hQe-y1-71e" secondAttribute="trailing" id="tcy-x5-9x5"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="4tn-PC-LBj" firstAttribute="leading" secondItem="qcD-5x-Fgz" secondAttribute="trailing" constant="10" id="3sT-7q-CFY"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="4tn-PC-LBj" secondAttribute="trailing" constant="10" id="Jvc-zv-5hq"/>
+                    <constraint firstItem="qcD-5x-Fgz" firstAttribute="top" secondItem="4tn-PC-LBj" secondAttribute="top" id="PuO-Zh-Iev"/>
+                    <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="qcD-5x-Fgz" secondAttribute="bottom" id="e4t-4V-X8x"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="4tn-PC-LBj" secondAttribute="bottom" id="kJ9-DE-31Y"/>
+                    <constraint firstItem="qcD-5x-Fgz" firstAttribute="leading" secondItem="4o4-dw-acS" secondAttribute="leadingMargin" constant="5" id="ljH-NJ-gR9"/>
+                    <constraint firstAttribute="topMargin" secondItem="4tn-PC-LBj" secondAttribute="top" id="skc-IF-BjN"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="profilePicture" destination="qcD-5x-Fgz" id="Xs2-Jg-5tX"/>
+                <outlet property="tweetLabel" destination="dzw-oC-v1D" id="Hpg-3h-NlX"/>
+                <outlet property="userNameLabel" destination="hQe-y1-71e" id="5Up-dO-iEQ"/>
+            </connections>
+            <point key="canvasLocation" x="302" y="370"/>
+        </tableViewCell>
+    </objects>
+</document>
