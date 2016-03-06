@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		964D4AFFF5B24F2B341DA7E5 /* libPods-Twitter Search.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B8DF27DE99FC21AC0B5E419 /* libPods-Twitter Search.a */; };
+		A3EAE0541C8CE9BA0074B3A9 /* Search+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EAE0511C8CE9BA0074B3A9 /* Search+CoreDataProperties.m */; };
+		A3EAE0551C8CE9BA0074B3A9 /* Search.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EAE0531C8CE9BA0074B3A9 /* Search.m */; };
 		A3F8CCA41C8C88C200D5CF67 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8CCA31C8C88C200D5CF67 /* main.m */; };
 		A3F8CCA71C8C88C200D5CF67 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8CCA61C8C88C200D5CF67 /* AppDelegate.m */; };
 		A3F8CCAD1C8C88C200D5CF67 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3F8CCAB1C8C88C200D5CF67 /* Main.storyboard */; };
@@ -26,6 +28,10 @@
 		7339841FECDE1A4334396683 /* Pods-Twitter Search.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Twitter Search.release.xcconfig"; path = "Pods/Target Support Files/Pods-Twitter Search/Pods-Twitter Search.release.xcconfig"; sourceTree = "<group>"; };
 		8A7946CC5D02BD85A2337FED /* Pods-Twitter Search.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Twitter Search.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Twitter Search/Pods-Twitter Search.debug.xcconfig"; sourceTree = "<group>"; };
 		8B8DF27DE99FC21AC0B5E419 /* libPods-Twitter Search.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Twitter Search.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3EAE0501C8CE9BA0074B3A9 /* Search+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Search+CoreDataProperties.h"; sourceTree = "<group>"; };
+		A3EAE0511C8CE9BA0074B3A9 /* Search+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Search+CoreDataProperties.m"; sourceTree = "<group>"; };
+		A3EAE0521C8CE9BA0074B3A9 /* Search.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Search.h; sourceTree = "<group>"; };
+		A3EAE0531C8CE9BA0074B3A9 /* Search.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Search.m; sourceTree = "<group>"; };
 		A3F8CC9F1C8C88C200D5CF67 /* Twitter Search.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Twitter Search.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3F8CCA31C8C88C200D5CF67 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A3F8CCA51C8C88C200D5CF67 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -69,6 +75,16 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		A3EAE04F1C8CE6B60074B3A9 /* Tweet Cell */ = {
+			isa = PBXGroup;
+			children = (
+				A3F8CCCA1C8CAA2A00D5CF67 /* TweetCell.h */,
+				A3F8CCCB1C8CAA2A00D5CF67 /* TweetCell.m */,
+				A3F8CCCD1C8CAA6400D5CF67 /* TweetCell.xib */,
+			);
+			name = "Tweet Cell";
+			sourceTree = "<group>";
+		};
 		A3F8CC961C8C88C100D5CF67 = {
 			isa = PBXGroup;
 			children = (
@@ -94,15 +110,13 @@
 				A3F8CCA51C8C88C200D5CF67 /* AppDelegate.h */,
 				A3F8CCA61C8C88C200D5CF67 /* AppDelegate.m */,
 				A3F8CCAB1C8C88C200D5CF67 /* Main.storyboard */,
+				A3EAE04F1C8CE6B60074B3A9 /* Tweet Cell */,
 				A3F8CCC91C8C942B00D5CF67 /* Search */,
 				A3F8CCB11C8C88C200D5CF67 /* Assets.xcassets */,
 				A3F8CCB31C8C88C200D5CF67 /* LaunchScreen.storyboard */,
 				A3F8CCB61C8C88C200D5CF67 /* Info.plist */,
 				A3F8CCAE1C8C88C200D5CF67 /* Twitter_Search.xcdatamodeld */,
 				A3F8CCA21C8C88C200D5CF67 /* Supporting Files */,
-				A3F8CCCA1C8CAA2A00D5CF67 /* TweetCell.h */,
-				A3F8CCCB1C8CAA2A00D5CF67 /* TweetCell.m */,
-				A3F8CCCD1C8CAA6400D5CF67 /* TweetCell.xib */,
 			);
 			path = "Twitter Search";
 			sourceTree = "<group>";
@@ -118,6 +132,10 @@
 		A3F8CCC81C8C942100D5CF67 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				A3EAE0501C8CE9BA0074B3A9 /* Search+CoreDataProperties.h */,
+				A3EAE0511C8CE9BA0074B3A9 /* Search+CoreDataProperties.m */,
+				A3EAE0521C8CE9BA0074B3A9 /* Search.h */,
+				A3EAE0531C8CE9BA0074B3A9 /* Search.m */,
 				A3F8CCC21C8C928800D5CF67 /* Tweet.h */,
 				A3F8CCC31C8C928800D5CF67 /* Tweet.m */,
 				A3F8CCC51C8C931C00D5CF67 /* TwitterUser.h */,
@@ -274,6 +292,8 @@
 				A3F8CCBE1C8C8B1B00D5CF67 /* SearchViewController.m in Sources */,
 				A3F8CCC41C8C928800D5CF67 /* Tweet.m in Sources */,
 				A3F8CCA41C8C88C200D5CF67 /* main.m in Sources */,
+				A3EAE0541C8CE9BA0074B3A9 /* Search+CoreDataProperties.m in Sources */,
+				A3EAE0551C8CE9BA0074B3A9 /* Search.m in Sources */,
 				A3F8CCB01C8C88C200D5CF67 /* Twitter_Search.xcdatamodeld in Sources */,
 				A3F8CCCC1C8CAA2A00D5CF67 /* TweetCell.m in Sources */,
 			);
