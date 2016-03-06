@@ -10,4 +10,16 @@
 
 @implementation Tweet
 
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+    return @{
+             @"text": @"text",
+             @"user": @"user"
+             };
+}
+
++ (NSValueTransformer *)userJSONTransformer {
+    return [MTLJSONAdapter dictionaryTransformerWithModelClass:TwitterUser.class];
+}
+
+
 @end

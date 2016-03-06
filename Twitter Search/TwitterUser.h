@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Mantle/Mantle.h>
 
-@interface TwitterUser : NSObject
+@interface TwitterUser : MTLModel <MTLJSONSerializing>
 @property (nonatomic, strong) NSString *screenName;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *profileImageURLString;

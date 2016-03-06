@@ -10,4 +10,12 @@
 
 @implementation TwitterUser
 
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+    return @{
+             @"screenName": @"screen_name",
+             @"name": @"name",
+             @"profileImageURLString": @"profile_image_url_https"
+             };
+}
+
 @end

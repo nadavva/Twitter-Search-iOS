@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Mantle/Mantle.h>
 #import "TwitterUser.h"
 
-@interface Tweet : NSObject
+@interface Tweet : MTLModel <MTLJSONSerializing>
 @property (nonatomic, strong) NSString *text;
 @property (nonatomic, strong) TwitterUser *user;
 @end
