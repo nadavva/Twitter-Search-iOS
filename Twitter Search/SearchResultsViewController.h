@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  SearchResultsViewController.h
 //  Twitter Search
 //
 //  Created by Mario Cecchi on 06/03/2016.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
-
+@interface SearchResultsViewController : UITableViewController
+@property (nonatomic, strong) NSString *searchQuery;
 @end
-
