@@ -71,6 +71,9 @@ static const int NumberOfTweetsToLoad = 25;
             } else if (error.code == TwitterAPIErrorNoAccounts) {
                 alertTitle = NSLocalizedString(@"TWITTER_NO_ACCOUNTS_ALERT_TITLE", @"");
                 alertMessage = NSLocalizedString(@"TWITTER_NO_ACCOUNTS_ALERT_MESSAGE", @"");
+            } else {
+                alertTitle = NSLocalizedString(@"TWITTER_DENIED_ALERT_TITLE", @"");
+                alertMessage = error.localizedDescription;
             }
             
             UIAlertController *alert = [UIAlertController okAlertWithTitle:alertTitle message:alertMessage];

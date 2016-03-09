@@ -7,13 +7,10 @@
  */
 
 "TWITTER_DENIED_ALERT_TITLE" = "Unable to access Twitter";
-
 "TWITTER_DENIED_ALERT_MESSAGE" = "You have not authorised Twitter Search to access your Twitter account, which is needed for loading the Tweets. Authorise this app in Settings > Twitter and try again.";
 
 "TWITTER_NO_ACCOUNTS_ALERT_TITLE" = "No Twitter accounts configured";
-
 "TWITTER_NO_ACCOUNTS_ALERT_MESSAGE" = "It looks like you haven't configured any Twitter accounts on your device. Configure an account in Settings > Twitter and try again.";
 
 "LOADING_FAILED_ALERT_TITLE" = "Unable to load tweets";
-
 "LOADING_FAILED_ALERT_MESSAGE" = "The search results could not be loaded at this time. Check your internet connection and try again.";
