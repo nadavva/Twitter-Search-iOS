@@ -11,6 +11,7 @@
 #import "TwitterUser.h"
 
 @interface Tweet : MTLModel <MTLJSONSerializing>
+@property (nonatomic, assign) long long statusID;
 @property (nonatomic, strong) NSString *text;
 @property (nonatomic, strong) TwitterUser *user;
 @end

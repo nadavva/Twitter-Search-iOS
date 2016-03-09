@@ -9,6 +9,7 @@
 #import <Accounts/Accounts.h>
 #import <Social/Social.h>
 #import <SVProgressHUD/SVProgressHUD.h>
+#import <UIScrollView+InfiniteScroll.h>
 #import "SearchResultsViewController.h"
 #import "Tweet.h"
 #import "TweetCell.h"
@@ -27,13 +28,40 @@
     self.tableView.allowsSelection = NO;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 100.0f;
+    
+    // Setup infinite scroll
+    __weak id weakSelf = self;
+    [self.tableView addInfiniteScrollWithHandler:^(UITableView* tableView) {
+        [weakSelf loadMoreResults];
+    }];
+
     UINib *cellNib = [UINib nibWithNibName:NSStringFromClass(TweetCell.class) bundle:nil];
     [self.tableView registerNib:cellNib forCellReuseIdentifier:@"Tweet Cell"];
+    
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self
+                            action:@selector(refreshTable:)
+                  forControlEvents:UIControlEventValueChanged];
+    
+    // Set initial loading indicator
+    [self.refreshControl beginRefreshing];
+    [self.tableView setContentOffset:CGPointMake(0, self.tableView.contentOffset.y-self.refreshControl.frame.size.height) animated:NO];
     
     [self loadResults];
 }
 
+- (void)refreshTable:(id)sender {
+    if (self.refreshControl.refreshing) {
+        [self loadResults];
+    }
+}
+
 - (void)loadResults {
+    self.tweets = @[];
+    [self loadMoreResults];
+}
+
+- (void)loadMoreResults {
     ACAccountStore *account = [[ACAccountStore alloc] init];
     ACAccountType *accountType = [account accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
     
@@ -49,25 +77,25 @@
             return;
         }
         
-        NSString *searchQueryEncoded = [self.searchQuery stringByAddingPercentEscapesUsingEncoding:
-                                        NSUTF8StringEncoding];
-        NSString *requestURLString = [NSString stringWithFormat:@"https://api.twitter.com/1.1/search/tweets.json?q=%@", searchQueryEncoded];
+        NSString *searchQueryEncoded = [self.searchQuery stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
+        NSString *requestURLString = [NSString stringWithFormat:@"https://api.twitter.com/1.1/search/tweets.json?count=25&q=%@", searchQueryEncoded];
+        if (self.tweets.count > 0) {
+            Tweet *oldestLoadedTweet = self.tweets.lastObject;
+            long long oldestTweetID = oldestLoadedTweet.statusID - 1; // to skip last tweet
+            requestURLString = [requestURLString stringByAppendingString:[NSString stringWithFormat:@"&max_id=%lld", oldestTweetID]];
+        }
+        
         NSURL *requestURL = [NSURL URLWithString:requestURLString];
-        NSDictionary *parameters = @{};
         SLRequest *postRequest = [SLRequest
                                   requestForServiceType:SLServiceTypeTwitter
                                   requestMethod:SLRequestMethodGET
-                                  URL:requestURL parameters:parameters];
+                                  URL:requestURL parameters:nil];
         ACAccount *twitterAccount = [arrayOfAccounts lastObject];
         postRequest.account = twitterAccount;
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [SVProgressHUD show];
-        });
-        
+
         [postRequest performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                [SVProgressHUD dismiss];
+                [self.refreshControl endRefreshing];
             });
             
             NSArray *statusesArray = [NSJSONSerialization
@@ -79,18 +107,24 @@
                 return;
             }
             
-            self.tweets = [MTLJSONAdapter modelsOfClass:Tweet.class fromJSONArray:statusesArray error:&error];
+            NSArray<Tweet *> *newTweets = [MTLJSONAdapter modelsOfClass:Tweet.class fromJSONArray:statusesArray error:&error];
             if (error) {
                 NSLog(@"Error parsing Tweet object. %@", error.localizedDescription);
                 return;
             }
             
+            NSMutableArray *tweets = self.tweets.mutableCopy;
+            [tweets addObjectsFromArray:newTweets];
+            self.tweets = tweets;
+            
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.tableView reloadData];
+                [self.tableView finishInfiniteScroll];
             });
         }];
     }];
 }
+
 
 #pragma mark - Table methods
 

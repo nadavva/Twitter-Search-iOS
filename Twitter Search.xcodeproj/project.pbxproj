@@ -107,11 +107,11 @@
 			isa = PBXGroup;
 			children = (
 				A3F8CCC81C8C942100D5CF67 /* Model */,
+				A3EAE04F1C8CE6B60074B3A9 /* Tweet Cell */,
+				A3F8CCC91C8C942B00D5CF67 /* Search */,
 				A3F8CCA51C8C88C200D5CF67 /* AppDelegate.h */,
 				A3F8CCA61C8C88C200D5CF67 /* AppDelegate.m */,
 				A3F8CCAB1C8C88C200D5CF67 /* Main.storyboard */,
-				A3EAE04F1C8CE6B60074B3A9 /* Tweet Cell */,
-				A3F8CCC91C8C942B00D5CF67 /* Search */,
 				A3F8CCB11C8C88C200D5CF67 /* Assets.xcassets */,
 				A3F8CCB31C8C88C200D5CF67 /* LaunchScreen.storyboard */,
 				A3F8CCB61C8C88C200D5CF67 /* Info.plist */,
