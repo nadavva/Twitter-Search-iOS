@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		964D4AFFF5B24F2B341DA7E5 /* libPods-Twitter Search.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B8DF27DE99FC21AC0B5E419 /* libPods-Twitter Search.a */; };
+		A36F96C41C8FD5860089C8F5 /* UIAlertController+okAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = A36F96C31C8FD5860089C8F5 /* UIAlertController+okAlert.m */; };
 		A3EAE0541C8CE9BA0074B3A9 /* Search+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EAE0511C8CE9BA0074B3A9 /* Search+CoreDataProperties.m */; };
 		A3EAE0551C8CE9BA0074B3A9 /* Search.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EAE0531C8CE9BA0074B3A9 /* Search.m */; };
 		A3F8CCA41C8C88C200D5CF67 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8CCA31C8C88C200D5CF67 /* main.m */; };
@@ -28,6 +29,8 @@
 		7339841FECDE1A4334396683 /* Pods-Twitter Search.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Twitter Search.release.xcconfig"; path = "Pods/Target Support Files/Pods-Twitter Search/Pods-Twitter Search.release.xcconfig"; sourceTree = "<group>"; };
 		8A7946CC5D02BD85A2337FED /* Pods-Twitter Search.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Twitter Search.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Twitter Search/Pods-Twitter Search.debug.xcconfig"; sourceTree = "<group>"; };
 		8B8DF27DE99FC21AC0B5E419 /* libPods-Twitter Search.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Twitter Search.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A36F96C21C8FD5860089C8F5 /* UIAlertController+okAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+okAlert.h"; sourceTree = "<group>"; };
+		A36F96C31C8FD5860089C8F5 /* UIAlertController+okAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+okAlert.m"; sourceTree = "<group>"; };
 		A3EAE0501C8CE9BA0074B3A9 /* Search+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Search+CoreDataProperties.h"; sourceTree = "<group>"; };
 		A3EAE0511C8CE9BA0074B3A9 /* Search+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Search+CoreDataProperties.m"; sourceTree = "<group>"; };
 		A3EAE0521C8CE9BA0074B3A9 /* Search.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Search.h; sourceTree = "<group>"; };
@@ -117,6 +120,8 @@
 				A3F8CCB61C8C88C200D5CF67 /* Info.plist */,
 				A3F8CCAE1C8C88C200D5CF67 /* Twitter_Search.xcdatamodeld */,
 				A3F8CCA21C8C88C200D5CF67 /* Supporting Files */,
+				A36F96C21C8FD5860089C8F5 /* UIAlertController+okAlert.h */,
+				A36F96C31C8FD5860089C8F5 /* UIAlertController+okAlert.m */,
 			);
 			path = "Twitter Search";
 			sourceTree = "<group>";
@@ -286,6 +291,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A36F96C41C8FD5860089C8F5 /* UIAlertController+okAlert.m in Sources */,
 				A3F8CCA71C8C88C200D5CF67 /* AppDelegate.m in Sources */,
 				A3F8CCC71C8C931C00D5CF67 /* TwitterUser.m in Sources */,
 				A3F8CCC11C8C907F00D5CF67 /* SearchResultsViewController.m in Sources */,

@@ -9,6 +9,7 @@
 #import <Accounts/Accounts.h>
 #import <Social/Social.h>
 #import <SVProgressHUD/SVProgressHUD.h>
+#import "UIAlertController+okAlert.h"
 #import <UIScrollView+InfiniteScroll.h>
 #import "SearchResultsViewController.h"
 #import "Tweet.h"
@@ -18,6 +19,7 @@
 @property (nonatomic, strong) NSArray<Tweet *> *tweets;
 @end
 
+static const int NumberOfTweetsToLoad = 25;
 
 @implementation SearchResultsViewController
 
@@ -67,18 +69,26 @@
     
     [account requestAccessToAccountsWithType:accountType options:nil completion:^(BOOL granted, NSError *error) {
         if (!granted) {
-            // TODO: Handle failure to get account access
+            UIAlertController *alert = [UIAlertController okAlertWithTitle:NSLocalizedString(@"Unable to access Twitter", @"") message:NSLocalizedString(@"You have not authorised Twitter Search to access your Twitter account, which is needed for loading the Tweets. Authorise this app in Settings > Twitter and try again.", @"")];
+            [self presentViewController:alert animated:YES completion:nil];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.refreshControl endRefreshing];
+            });
             return;
         }
         
         NSArray *arrayOfAccounts = [account accountsWithAccountType:accountType];
         if (arrayOfAccounts.count == 0) {
-            // TODO: Handle not having a Twitter account
+            UIAlertController *alert = [UIAlertController okAlertWithTitle:NSLocalizedString(@"No Twitter accounts configured", @"") message:NSLocalizedString(@"It looks like you haven't configured any Twitter accounts on your device. Configure an account in Settings > Twitter and try again.", @"")];
+            [self presentViewController:alert animated:YES completion:nil];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.refreshControl endRefreshing];
+            });
             return;
         }
         
         NSString *searchQueryEncoded = [self.searchQuery stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
-        NSString *requestURLString = [NSString stringWithFormat:@"https://api.twitter.com/1.1/search/tweets.json?count=25&q=%@", searchQueryEncoded];
+        NSString *requestURLString = [NSString stringWithFormat:@"https://api.twitter.com/1.1/search/tweets.json?count=%d&q=%@", NumberOfTweetsToLoad, searchQueryEncoded];
         if (self.tweets.count > 0) {
             Tweet *oldestLoadedTweet = self.tweets.lastObject;
             long long oldestTweetID = oldestLoadedTweet.statusID - 1; // to skip last tweet
