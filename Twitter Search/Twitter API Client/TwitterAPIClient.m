@@ -24,19 +24,19 @@ static ACAccount *twitterAccount;
         NSError *returnError;
         if (!granted) {
             returnError = [NSError errorWithDomain:@"TwitterAPIErrorDomain" code:TwitterAPIErrorAccessDenied userInfo:@{}];
-            completionHandler(error);
+            completionHandler(returnError);
             return;
         }
         
         NSArray *arrayOfAccounts = [account accountsWithAccountType:accountType];
         if (arrayOfAccounts.count == 0) {
             returnError = [NSError errorWithDomain:@"TwitterAPIErrorDomain" code:TwitterAPIErrorNoAccounts userInfo:@{}];
-            completionHandler(error);
+            completionHandler(returnError);
             return;
         }
         
         twitterAccount = arrayOfAccounts.lastObject;
-        completionHandler(nil);
+        completionHandler(error);
     }];
 }
 

@@ -74,9 +74,10 @@ static const int NumberOfTweetsToLoad = 25;
             }
             
             UIAlertController *alert = [UIAlertController okAlertWithTitle:alertTitle message:alertMessage];
-            [self presentViewController:alert animated:YES completion:nil];
             dispatch_async(dispatch_get_main_queue(), ^{
+                [self presentViewController:alert animated:YES completion:nil];
                 [self.refreshControl endRefreshing];
+                [self.tableView reloadData];
             });
             
             return;
