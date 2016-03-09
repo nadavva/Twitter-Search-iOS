@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		964D4AFFF5B24F2B341DA7E5 /* libPods-Twitter Search.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B8DF27DE99FC21AC0B5E419 /* libPods-Twitter Search.a */; };
 		A36F96C41C8FD5860089C8F5 /* UIAlertController+okAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = A36F96C31C8FD5860089C8F5 /* UIAlertController+okAlert.m */; };
+		A36F96C91C8FDE420089C8F5 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A36F96CB1C8FDE420089C8F5 /* Localizable.strings */; };
 		A3EAE0541C8CE9BA0074B3A9 /* Search+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EAE0511C8CE9BA0074B3A9 /* Search+CoreDataProperties.m */; };
 		A3EAE0551C8CE9BA0074B3A9 /* Search.m in Sources */ = {isa = PBXBuildFile; fileRef = A3EAE0531C8CE9BA0074B3A9 /* Search.m */; };
 		A3F8CCA41C8C88C200D5CF67 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F8CCA31C8C88C200D5CF67 /* main.m */; };
@@ -31,6 +32,10 @@
 		8B8DF27DE99FC21AC0B5E419 /* libPods-Twitter Search.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Twitter Search.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A36F96C21C8FD5860089C8F5 /* UIAlertController+okAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+okAlert.h"; sourceTree = "<group>"; };
 		A36F96C31C8FD5860089C8F5 /* UIAlertController+okAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+okAlert.m"; sourceTree = "<group>"; };
+		A36F96C51C8FDC420089C8F5 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
+		A36F96C61C8FDC420089C8F5 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		A36F96CA1C8FDE420089C8F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A36F96CD1C8FDF610089C8F5 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		A3EAE0501C8CE9BA0074B3A9 /* Search+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Search+CoreDataProperties.h"; sourceTree = "<group>"; };
 		A3EAE0511C8CE9BA0074B3A9 /* Search+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Search+CoreDataProperties.m"; sourceTree = "<group>"; };
 		A3EAE0521C8CE9BA0074B3A9 /* Search.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Search.h; sourceTree = "<group>"; };
@@ -122,6 +127,7 @@
 				A3F8CCA21C8C88C200D5CF67 /* Supporting Files */,
 				A36F96C21C8FD5860089C8F5 /* UIAlertController+okAlert.h */,
 				A36F96C31C8FD5860089C8F5 /* UIAlertController+okAlert.m */,
+				A36F96CB1C8FDE420089C8F5 /* Localizable.strings */,
 			);
 			path = "Twitter Search";
 			sourceTree = "<group>";
@@ -213,6 +219,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"pt-BR",
 			);
 			mainGroup = A3F8CC961C8C88C100D5CF67;
 			productRefGroup = A3F8CCA01C8C88C200D5CF67 /* Products */;
@@ -229,6 +236,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A36F96C91C8FDE420089C8F5 /* Localizable.strings in Resources */,
 				A3F8CCB51C8C88C200D5CF67 /* LaunchScreen.storyboard in Resources */,
 				A3F8CCB21C8C88C200D5CF67 /* Assets.xcassets in Resources */,
 				A3F8CCAD1C8C88C200D5CF67 /* Main.storyboard in Resources */,
@@ -308,10 +316,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		A36F96CB1C8FDE420089C8F5 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A36F96CA1C8FDE420089C8F5 /* Base */,
+				A36F96CD1C8FDF610089C8F5 /* pt-BR */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		A3F8CCAB1C8C88C200D5CF67 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				A3F8CCAC1C8C88C200D5CF67 /* Base */,
+				A36F96C51C8FDC420089C8F5 /* pt-BR */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -320,6 +338,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				A3F8CCB41C8C88C200D5CF67 /* Base */,
+				A36F96C61C8FDC420089C8F5 /* pt-BR */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  Twitter Search
+
+  Created by Mario Cecchi on 09/03/2016.
+  Copyright © 2016 Mario Cecchi. All rights reserved.
+*/
+
+"TWITTER_DENIED_ALERT_TITLE" = "Não foi possível acessar o Twitter";
+
+"TWITTER_DENIED_ALERT_MESSAGE" = "Você precisa autorizar o acesso à sua conta do Twitter para poder usar a pesquisa. Para autorizar o app, vá em Ajustes > Twitter.";
+
+"TWITTER_NO_ACCOUNTS_ALERT_TITLE" = "Nenhuma conta do Twitter configurada.";
+
+"TWITTER_NO_ACCOUNTS_ALERT_MESSAGE" = "Parece que você não configurou nenhuma conta do Twitter no seu aparelho. Configure em Ajustes > Twitter e tente novamente.";
+
+"LOADING_FAILED_ALERT_TITLE" = "Não foi possível carregar os tweets";
+
+"LOADING_FAILED_ALERT_MESSAGE" = "Os resultados da pesquisa não puderam ser carregados. Verifique sua conexão com a internet e tente novamente.";

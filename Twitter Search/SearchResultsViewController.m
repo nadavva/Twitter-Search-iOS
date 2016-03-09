@@ -69,7 +69,7 @@ static const int NumberOfTweetsToLoad = 25;
     
     [account requestAccessToAccountsWithType:accountType options:nil completion:^(BOOL granted, NSError *error) {
         if (!granted) {
-            UIAlertController *alert = [UIAlertController okAlertWithTitle:NSLocalizedString(@"Unable to access Twitter", @"") message:NSLocalizedString(@"You have not authorised Twitter Search to access your Twitter account, which is needed for loading the Tweets. Authorise this app in Settings > Twitter and try again.", @"")];
+            UIAlertController *alert = [UIAlertController okAlertWithTitle:NSLocalizedString(@"TWITTER_DENIED_ALERT_TITLE", @"") message:NSLocalizedString(@"TWITTER_DENIED_ALERT_MESSAGE", @"")];
             [self presentViewController:alert animated:YES completion:nil];
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.refreshControl endRefreshing];
@@ -79,7 +79,7 @@ static const int NumberOfTweetsToLoad = 25;
         
         NSArray *arrayOfAccounts = [account accountsWithAccountType:accountType];
         if (arrayOfAccounts.count == 0) {
-            UIAlertController *alert = [UIAlertController okAlertWithTitle:NSLocalizedString(@"No Twitter accounts configured", @"") message:NSLocalizedString(@"It looks like you haven't configured any Twitter accounts on your device. Configure an account in Settings > Twitter and try again.", @"")];
+            UIAlertController *alert = [UIAlertController okAlertWithTitle:NSLocalizedString(@"TWITTER_NO_ACCOUNTS_ALERT_TITLE", @"") message:NSLocalizedString(@"TWITTER_NO_ACCOUNTS_ALERT_MESSAGE", @"")];
             [self presentViewController:alert animated:YES completion:nil];
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.refreshControl endRefreshing];
@@ -109,7 +109,7 @@ static const int NumberOfTweetsToLoad = 25;
             });
             
             if (error) {
-                UIAlertController *alert = [UIAlertController okAlertWithTitle:NSLocalizedString(@"Error loading tweets", @"") message:NSLocalizedString(@"The search results could not be loaded at this time. Check your internet connection and try again.", @"")];
+                UIAlertController *alert = [UIAlertController okAlertWithTitle:NSLocalizedString(@"LOADING_FAILED_ALERT_TITLE", @"") message:NSLocalizedString(@"LOADING_FAILED_ALERT_MESSAGE", @"")];
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self presentViewController:alert animated:YES completion:nil];
                 });
