@@ -111,7 +111,6 @@ static const int NumberOfTweetsToLoad = 25;
                 [self.tableView finishInfiniteScroll];
             });
         }];
-        
     }];
 }
 

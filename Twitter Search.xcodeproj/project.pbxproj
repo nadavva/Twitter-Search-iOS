@@ -35,8 +35,8 @@
 		A353820B1C908C35003F2E21 /* TwitterAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterAPIClient.m; sourceTree = "<group>"; };
 		A36F96C21C8FD5860089C8F5 /* UIAlertController+okAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+okAlert.h"; sourceTree = "<group>"; };
 		A36F96C31C8FD5860089C8F5 /* UIAlertController+okAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+okAlert.m"; sourceTree = "<group>"; };
-		A36F96C51C8FDC420089C8F5 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
-		A36F96C61C8FDC420089C8F5 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		A36F96C51C8FDC420089C8F5 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.storyboard"; sourceTree = "<group>"; };
+		A36F96C61C8FDC420089C8F5 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.storyboard"; sourceTree = "<group>"; };
 		A36F96CA1C8FDE420089C8F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A36F96CD1C8FDF610089C8F5 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		A3EAE0501C8CE9BA0074B3A9 /* Search+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Search+CoreDataProperties.h"; sourceTree = "<group>"; };
@@ -92,7 +92,7 @@
 				A36F96C21C8FD5860089C8F5 /* UIAlertController+okAlert.h */,
 				A36F96C31C8FD5860089C8F5 /* UIAlertController+okAlert.m */,
 			);
-			name = Categories;
+			path = Categories;
 			sourceTree = "<group>";
 		};
 		A35382091C908C12003F2E21 /* Twitter API Client */ = {
@@ -101,7 +101,7 @@
 				A353820A1C908C35003F2E21 /* TwitterAPIClient.h */,
 				A353820B1C908C35003F2E21 /* TwitterAPIClient.m */,
 			);
-			name = "Twitter API Client";
+			path = "Twitter API Client";
 			sourceTree = "<group>";
 		};
 		A3EAE04F1C8CE6B60074B3A9 /* Tweet Cell */ = {
@@ -111,16 +111,16 @@
 				A3F8CCCB1C8CAA2A00D5CF67 /* TweetCell.m */,
 				A3F8CCCD1C8CAA6400D5CF67 /* TweetCell.xib */,
 			);
-			name = "Tweet Cell";
+			path = "Tweet Cell";
 			sourceTree = "<group>";
 		};
 		A3F8CC961C8C88C100D5CF67 = {
 			isa = PBXGroup;
 			children = (
 				A3F8CCA11C8C88C200D5CF67 /* Twitter Search */,
-				A3F8CCA01C8C88C200D5CF67 /* Products */,
-				746C50073F472FC1D424E67F /* Pods */,
 				B245CB50A80DD5F2B81B2358 /* Frameworks */,
+				746C50073F472FC1D424E67F /* Pods */,
+				A3F8CCA01C8C88C200D5CF67 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -135,20 +135,20 @@
 		A3F8CCA11C8C88C200D5CF67 /* Twitter Search */ = {
 			isa = PBXGroup;
 			children = (
-				A35382091C908C12003F2E21 /* Twitter API Client */,
 				A35382081C9086EB003F2E21 /* Categories */,
 				A3F8CCC81C8C942100D5CF67 /* Model */,
-				A3EAE04F1C8CE6B60074B3A9 /* Tweet Cell */,
 				A3F8CCC91C8C942B00D5CF67 /* Search */,
+				A3F8CCA21C8C88C200D5CF67 /* Supporting Files */,
+				A3EAE04F1C8CE6B60074B3A9 /* Tweet Cell */,
+				A35382091C908C12003F2E21 /* Twitter API Client */,
 				A3F8CCA51C8C88C200D5CF67 /* AppDelegate.h */,
 				A3F8CCA61C8C88C200D5CF67 /* AppDelegate.m */,
+				A3F8CCB11C8C88C200D5CF67 /* Assets.xcassets */,
+				A3F8CCB61C8C88C200D5CF67 /* Info.plist */,
+				A3F8CCB31C8C88C200D5CF67 /* LaunchScreen.storyboard */,
 				A36F96CB1C8FDE420089C8F5 /* Localizable.strings */,
 				A3F8CCAB1C8C88C200D5CF67 /* Main.storyboard */,
-				A3F8CCB11C8C88C200D5CF67 /* Assets.xcassets */,
-				A3F8CCB31C8C88C200D5CF67 /* LaunchScreen.storyboard */,
-				A3F8CCB61C8C88C200D5CF67 /* Info.plist */,
 				A3F8CCAE1C8C88C200D5CF67 /* Twitter_Search.xcdatamodeld */,
-				A3F8CCA21C8C88C200D5CF67 /* Supporting Files */,
 			);
 			path = "Twitter Search";
 			sourceTree = "<group>";
@@ -158,7 +158,7 @@
 			children = (
 				A3F8CCA31C8C88C200D5CF67 /* main.m */,
 			);
-			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		A3F8CCC81C8C942100D5CF67 /* Model */ = {
@@ -173,18 +173,18 @@
 				A3F8CCC51C8C931C00D5CF67 /* TwitterUser.h */,
 				A3F8CCC61C8C931C00D5CF67 /* TwitterUser.m */,
 			);
-			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		A3F8CCC91C8C942B00D5CF67 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				A3F8CCBC1C8C8B1B00D5CF67 /* SearchViewController.h */,
-				A3F8CCBD1C8C8B1B00D5CF67 /* SearchViewController.m */,
 				A3F8CCBF1C8C907F00D5CF67 /* SearchResultsViewController.h */,
 				A3F8CCC01C8C907F00D5CF67 /* SearchResultsViewController.m */,
+				A3F8CCBC1C8C8B1B00D5CF67 /* SearchViewController.h */,
+				A3F8CCBD1C8C8B1B00D5CF67 /* SearchViewController.m */,
 			);
-			name = Search;
+			path = Search;
 			sourceTree = "<group>";
 		};
 		B245CB50A80DD5F2B81B2358 /* Frameworks */ = {
@@ -345,6 +345,7 @@
 				A36F96CD1C8FDF610089C8F5 /* pt-BR */,
 			);
 			name = Localizable.strings;
+			path = .;
 			sourceTree = "<group>";
 		};
 		A3F8CCAB1C8C88C200D5CF67 /* Main.storyboard */ = {
@@ -354,6 +355,7 @@
 				A36F96C51C8FDC420089C8F5 /* pt-BR */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		A3F8CCB31C8C88C200D5CF67 /* LaunchScreen.storyboard */ = {
@@ -363,6 +365,7 @@
 				A36F96C61C8FDC420089C8F5 /* pt-BR */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
