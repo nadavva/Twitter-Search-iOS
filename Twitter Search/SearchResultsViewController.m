@@ -8,7 +8,6 @@
 
 #import <Accounts/Accounts.h>
 #import <Social/Social.h>
-#import <SVProgressHUD/SVProgressHUD.h>
 #import "UIAlertController+okAlert.h"
 #import <UIScrollView+InfiniteScroll.h>
 #import "SearchResultsViewController.h"
