@@ -1,4 +1,4 @@
-    //
+//
 //  SearchResultsViewController.m
 //  Twitter Search
 //
@@ -6,13 +6,12 @@
 //  Copyright © 2016 Mario Cecchi. All rights reserved.
 //
 
-#import <Accounts/Accounts.h>
-#import <Social/Social.h>
 #import "UIAlertController+okAlert.h"
 #import <UIScrollView+InfiniteScroll.h>
 #import "SearchResultsViewController.h"
 #import "Tweet.h"
 #import "TweetCell.h"
+#import "TwitterAPIClient.h"
 
 @interface SearchResultsViewController()
 @property (nonatomic, strong) NSArray<Tweet *> *tweets;
@@ -35,7 +34,7 @@ static const int NumberOfTweetsToLoad = 25;
     [self.tableView addInfiniteScrollWithHandler:^(UITableView* tableView) {
         [weakSelf loadMoreResults];
     }];
-
+    
     UINib *cellNib = [UINib nibWithNibName:NSStringFromClass(TweetCell.class) bundle:nil];
     [self.tableView registerNib:cellNib forCellReuseIdentifier:@"Tweet Cell"];
     
@@ -63,72 +62,43 @@ static const int NumberOfTweetsToLoad = 25;
 }
 
 - (void)loadMoreResults {
-    ACAccountStore *account = [[ACAccountStore alloc] init];
-    ACAccountType *accountType = [account accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
-    
-    [account requestAccessToAccountsWithType:accountType options:nil completion:^(BOOL granted, NSError *error) {
-        if (!granted) {
-            UIAlertController *alert = [UIAlertController okAlertWithTitle:NSLocalizedString(@"TWITTER_DENIED_ALERT_TITLE", @"") message:NSLocalizedString(@"TWITTER_DENIED_ALERT_MESSAGE", @"")];
+    [TwitterAPIClient requestAccessToTwitterAccounts:^(NSError *error) {
+        if (error) {
+            NSString *alertTitle, *alertMessage;
+            if (error.code == TwitterAPIErrorAccessDenied) {
+                alertTitle = NSLocalizedString(@"TWITTER_DENIED_ALERT_TITLE", @"");
+                alertMessage = NSLocalizedString(@"TWITTER_DENIED_ALERT_MESSAGE", @"");
+            } else if (error.code == TwitterAPIErrorNoAccounts) {
+                alertTitle = NSLocalizedString(@"TWITTER_NO_ACCOUNTS_ALERT_TITLE", @"");
+                alertMessage = NSLocalizedString(@"TWITTER_NO_ACCOUNTS_ALERT_MESSAGE", @"");
+            }
+            
+            UIAlertController *alert = [UIAlertController okAlertWithTitle:alertTitle message:alertMessage];
             [self presentViewController:alert animated:YES completion:nil];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.refreshControl endRefreshing];
-            });
-            return;
-        }
-        
-        NSArray *arrayOfAccounts = [account accountsWithAccountType:accountType];
-        if (arrayOfAccounts.count == 0) {
-            UIAlertController *alert = [UIAlertController okAlertWithTitle:NSLocalizedString(@"TWITTER_NO_ACCOUNTS_ALERT_TITLE", @"") message:NSLocalizedString(@"TWITTER_NO_ACCOUNTS_ALERT_MESSAGE", @"")];
-            [self presentViewController:alert animated:YES completion:nil];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.refreshControl endRefreshing];
-            });
-            return;
-        }
-        
-        NSString *searchQueryEncoded = [self.searchQuery stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding];
-        NSString *requestURLString = [NSString stringWithFormat:@"https://api.twitter.com/1.1/search/tweets.json?count=%d&q=%@", NumberOfTweetsToLoad, searchQueryEncoded];
-        if (self.tweets.count > 0) {
-            Tweet *oldestLoadedTweet = self.tweets.lastObject;
-            long long oldestTweetID = oldestLoadedTweet.statusID - 1; // to skip last tweet
-            requestURLString = [requestURLString stringByAppendingString:[NSString stringWithFormat:@"&max_id=%lld", oldestTweetID]];
-        }
-        
-        NSURL *requestURL = [NSURL URLWithString:requestURLString];
-        SLRequest *postRequest = [SLRequest
-                                  requestForServiceType:SLServiceTypeTwitter
-                                  requestMethod:SLRequestMethodGET
-                                  URL:requestURL parameters:nil];
-        ACAccount *twitterAccount = [arrayOfAccounts lastObject];
-        postRequest.account = twitterAccount;
-
-        [postRequest performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.refreshControl endRefreshing];
             });
             
-            if (error) {
+            return;
+        }
+        
+        long long oldestLoadedTweetID = 0;
+        if (self.tweets.count > 0) {
+            Tweet *oldestLoadedTweet = self.tweets.lastObject;
+            oldestLoadedTweetID = oldestLoadedTweet.statusID - 1; // to skip last tweet
+        }
+        
+        [TwitterAPIClient searchWithQuery:self.searchQuery maxID:oldestLoadedTweetID limit:NumberOfTweetsToLoad completionHandler:^(NSArray<Tweet *> *newTweets, NSError *error) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.refreshControl endRefreshing];
+            });
+            
+            if (error || !newTweets) {
                 UIAlertController *alert = [UIAlertController okAlertWithTitle:NSLocalizedString(@"LOADING_FAILED_ALERT_TITLE", @"") message:NSLocalizedString(@"LOADING_FAILED_ALERT_MESSAGE", @"")];
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self presentViewController:alert animated:YES completion:nil];
                 });
-                return;
-            }
-            
-            NSError *jsonError;
-            NSArray *statusesArray = [NSJSONSerialization
-                                      JSONObjectWithData:responseData
-                                      options:NSJSONReadingMutableLeaves
-                                      error:&jsonError][@"statuses"];
-            if (jsonError) {
-                NSLog(@"Error reading response from Twitter. %@", jsonError.localizedDescription);
-                return;
-            }
-            
-            NSError *modelParsingError;
-            NSArray<Tweet *> *newTweets = [MTLJSONAdapter modelsOfClass:Tweet.class fromJSONArray:statusesArray error:&modelParsingError];
-            if (modelParsingError) {
-                NSLog(@"Error parsing Tweet object. %@", modelParsingError.localizedDescription);
+                
                 return;
             }
             
@@ -141,6 +111,7 @@ static const int NumberOfTweetsToLoad = 25;
                 [self.tableView finishInfiniteScroll];
             });
         }];
+        
     }];
 }
 
