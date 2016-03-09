@@ -18,4 +18,11 @@
              };
 }
 
++ (NSValueTransformer *)profileImageURLStringJSONTransformer {
+    // This converts the small profile pictures for references to the original sizes (needed for retina-quality photos)
+    return [MTLValueTransformer transformerUsingForwardBlock:^id(NSString *urlString, BOOL *success, NSError *__autoreleasing *error) {
+        return [urlString stringByReplacingOccurrencesOfString:@"_normal" withString:@""];
+    }];
+}
+
 @end
