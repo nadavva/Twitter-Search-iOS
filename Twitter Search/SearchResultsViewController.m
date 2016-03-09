@@ -108,18 +108,28 @@ static const int NumberOfTweetsToLoad = 25;
                 [self.refreshControl endRefreshing];
             });
             
-            NSArray *statusesArray = [NSJSONSerialization
-                                      JSONObjectWithData:responseData
-                                      options:NSJSONReadingMutableLeaves
-                                      error:&error][@"statuses"];
             if (error) {
-                NSLog(@"Error reading response from Twitter. %@", error.localizedDescription);
+                UIAlertController *alert = [UIAlertController okAlertWithTitle:NSLocalizedString(@"Error loading tweets", @"") message:NSLocalizedString(@"The search results could not be loaded at this time. Check your internet connection and try again.", @"")];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self presentViewController:alert animated:YES completion:nil];
+                });
                 return;
             }
             
-            NSArray<Tweet *> *newTweets = [MTLJSONAdapter modelsOfClass:Tweet.class fromJSONArray:statusesArray error:&error];
-            if (error) {
-                NSLog(@"Error parsing Tweet object. %@", error.localizedDescription);
+            NSError *jsonError;
+            NSArray *statusesArray = [NSJSONSerialization
+                                      JSONObjectWithData:responseData
+                                      options:NSJSONReadingMutableLeaves
+                                      error:&jsonError][@"statuses"];
+            if (jsonError) {
+                NSLog(@"Error reading response from Twitter. %@", jsonError.localizedDescription);
+                return;
+            }
+            
+            NSError *modelParsingError;
+            NSArray<Tweet *> *newTweets = [MTLJSONAdapter modelsOfClass:Tweet.class fromJSONArray:statusesArray error:&modelParsingError];
+            if (modelParsingError) {
+                NSLog(@"Error parsing Tweet object. %@", modelParsingError.localizedDescription);
                 return;
             }
             
