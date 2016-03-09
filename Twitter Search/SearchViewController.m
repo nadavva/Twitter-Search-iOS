@@ -27,7 +27,7 @@
     self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
     self.searchController.searchBar.delegate = self;
     self.searchController.searchBar.autocapitalizationType = UITextAutocapitalizationTypeNone;
-    
+
     self.definesPresentationContext = YES;
     self.tableView.tableHeaderView = self.searchController.searchBar;
     
